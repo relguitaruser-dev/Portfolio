@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <style>
+  
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      color: #333;
+    }
+
+    header {
+      background: #111;
+      color: #fff;
+      padding: 40px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    #personal-info {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-top: 30px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    #personal-info img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    #personal-info img:hover {
+      transform: scale(1.1);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .modal-content {
+      margin: 10% auto;
+      display: block;
+      width: 60%;
+      max-width: 700px;
+      border-radius: 10px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .info-text p {
+      margin: 8px 0;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    .info-text p i {
+      margin-right: 10px;
+      color: #111;
+      transition: color 0.3s;
+    }
+
+    .info-text p:hover i {
+      color: #007BFF;
+    }
+
+    .social-links a {
+      margin-right: 15px;
+      color: #111;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #007BFF;
+    }
+
+    .project {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.6s ease-out;
+    }
+
+    .project.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .details {
+      display: none;
+      margin-top: 15px;
+      padding-top: 10px;
+      border-top: 1px solid #ddd;
+    }
+
+    button {
+      background: #111;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      opacity: 0.7;
+    }
+
+    .details img {
+      width: 100%;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    .details p {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Portfolio</h1>
+  </header>
+
+  <section class="container" id="personal-info">
+    <img id="profilePic" src="https://img.sanishtech.com/u/896543bd27f82421a436ef5b4b283e41.jpg" alt="Profile Picture">
+    <div class="info-text">
+      <h2>Personal Information</h2>
+      <p><i class="fas fa-user"></i><strong>Name:</strong> John Rel Gomez</p>
+      <p><i class="fas fa-book"></i><strong>Course:</strong> Bachelor of Science in Information Technology</p>
+      <p><i class="fas fa-graduation-cap"></i><strong>Grade Level:</strong> 1st year Colleges</p>
+      <p><i class="fas fa-school"></i><strong>School:</strong> East System Colleges of Rizal</p>
+      <p><i class="fas fa-map-marker-alt"></i><strong>Address:</strong> E. Acosta st. Quisao Pililla Rizal</p>
+      <p><i class="fas fa-phone"></i><strong>Contact Number:</strong> +639161489824</p>
+      
+      
+      <div class="social-links">
+        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="imgModal">
+  </div>
+  
+  <div class="container">
+    <div class="project">
+      <h2>About</h2>
+      <button onclick="toggleDetails(this)">View Details</button>
+      <div class="details">
+<About>I Build Web Experiences - Front-End Development,Design System,and small apps 
+
+
+    
+      </div>
+    </div>
+
+    
+  <div class="container">
+    <div class="project">
+      <h2>Projects</h2>
+      <button onclick="toggleDetails(this)">View Details</button>
+      <div class="details">
+    <p>Automated Enroling System in philtech Tanay Computer Programming 2 Using Visual Basic Studio</p>
+
+    <img src="https://img.sanishtech.com/u/e5360e5f376beda1e43d7164f9c5f36c.jpg" alt="Log In form" width="500" height="300">
+    <img src="https://img.sanishtech.com/u/b93f0707c8a517b38297dc3475261f8a.jpg" alt="Success log Inform" width="500" height="300">
+    <img src="https://img.sanishtech.com/u/318d920e3c670d4a2190babf51d3a8e1.jpg" alt="Main form" width="500" height="300">
+<img src="https://img.sanishtech.com/u/d66902c11b75ca23a041ac7a4631ce0f.jpg" alt="G10 Completer form" width="500" height="300">
+<img src="https://img.sanishtech.com/u/b1a9b2544fdafff22bcd04e25392c3f9.jpg" alt="ALS" width="500" height="300">
+<img src="https://img.sanishtech.com/u/4ee2880008795550579e96d229322558.jpg" alt="Balik Aral" width="500" height="300">
+<img src="https://img.sanishtech.com/u/e50ffcf0bfa0ee5e544149200a55280c.jpg" alt="Transfer" width="500" height="300">
+
+    
+      </div>
+    </div>
+
+    
+  <script>
+    function toggleDetails(button) {
+      const details = button.nextElementSibling;
+      details.style.display = details.style.display === 'block' ? 'none' : 'block';
+    }
+
+    const projects = document.querySelectorAll('.project');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    projects.forEach(project => observer.observe(project));
+
+    var modal = document.getElementById("myModal");
+    var img = document.getElementById("profilePic");
+    var modalImg = document.getElementById("imgModal");
+    var span = document.getElementsByClassName("close")[0];
+
+    img.onclick = function(){
+      modal.style.display = "block";
+      modalImg.src = this.src;
+    }
+
+    span.onclick = function() { modal.style.display = "none"; }
+    modal.onclick = function() { modal.style.display = "none"; }
+  </script>
+</body>
+</html>
